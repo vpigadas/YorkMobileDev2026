@@ -19,7 +19,8 @@ public class RecyclerActivity extends AppCompatActivity {
         binding = ActivityRecyclerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.recyclerView.setAdapter(new CustomAdapter(generateData()));
+//        binding.recyclerView.setAdapter(new CustomAdapter(generateData()));
+        binding.recyclerView.setAdapter(new CustomAdapterV2(generateData()));
     }
 
     private List<String> generateData() {

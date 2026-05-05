@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import gr.york.mobiledev2026.database.DatabaseActivity;
+import gr.york.mobiledev2026.database.StorageActivity;
 import gr.york.mobiledev2026.databinding.ActivityMainBinding;
 import gr.york.mobiledev2026.network.NetworkActivity;
 import gr.york.mobiledev2026.recycler.RecyclerActivity;
@@ -66,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, RecyclerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.mainBtnPreferences.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, StorageActivity.class);
                 startActivity(intent);
             }
         });
