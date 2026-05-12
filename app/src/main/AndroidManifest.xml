@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YorkMobileDev2026">
         <activity
+            android:name=".fragment.MyFragmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".database.StorageActivity"
             android:exported="false" />
         <activity

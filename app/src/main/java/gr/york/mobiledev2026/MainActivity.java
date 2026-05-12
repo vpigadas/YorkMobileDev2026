@@ -7,12 +7,14 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import gr.york.mobiledev2026.database.DatabaseActivity;
 import gr.york.mobiledev2026.database.StorageActivity;
 import gr.york.mobiledev2026.databinding.ActivityMainBinding;
+import gr.york.mobiledev2026.fragment.MyFragmentActivity;
 import gr.york.mobiledev2026.network.NetworkActivity;
 import gr.york.mobiledev2026.recycler.RecyclerActivity;
 import gr.york.mobiledev2026.sample.SampleActivity;
@@ -75,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, StorageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.mainBtnFragments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MyFragmentActivity.class);
                 startActivity(intent);
             }
         });
