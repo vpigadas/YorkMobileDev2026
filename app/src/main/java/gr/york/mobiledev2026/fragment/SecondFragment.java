@@ -8,13 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import gr.york.mobiledev2026.databinding.FragmentSecondBinding;
 
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
-    private int counter = 0;
+    private MyViewModel viewModel;
 
     public SecondFragment() {
         // Required empty public constructor
@@ -32,6 +33,8 @@ public class SecondFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
@@ -44,6 +47,8 @@ public class SecondFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        viewModel = new ViewModelProvider(getActivity()).get(MyViewModel.class);
+
 
         String title = getArguments().getString("title", "empty");
 
@@ -52,16 +57,16 @@ public class SecondFragment extends Fragment {
         binding.secondBtnLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counter--;
-                binding.secondTxtTitle.setText(title + " " + counter);
+                viewModel.decrementCounter();
+                //binding.secondTxtTitle.setText(title + " " + viewModel.getCounter());
             }
         });
 
         binding.secondBtnRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counter++;
-                binding.secondTxtTitle.setText(title + " " + counter);
+                viewModel.incrementCounter();
+//                binding.secondTxtTitle.setText(title + " " + viewModel.getCounter());
             }
         });
     }

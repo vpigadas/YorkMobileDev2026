@@ -1,21 +1,23 @@
 package gr.york.mobiledev2026.fragment;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MyViewModel extends ViewModel {
-
-    private int counter = 0;
+    private MutableLiveData<Integer> _counter = new MutableLiveData<>(0);
+    LiveData<Integer> counter = _counter;
 
 
     public void incrementCounter() {
-        counter++;
+        int value = _counter.getValue() != null ? _counter.getValue() : 0;
+        value++;
+        _counter.postValue(value);
     }
 
     public void decrementCounter() {
-        counter--;
-    }
-
-    public int getCounter() {
-        return counter;
+        int value = _counter.getValue() != null ? _counter.getValue() : 0;
+        value--;
+        _counter.postValue(value);
     }
 }
